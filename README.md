@@ -32,22 +32,31 @@ A simple banking application in Java with support for deposits, withdrawals, and
 
 You'll use the Node.js REPL (Read-Eval-Print Loop) to interact with your program. Here's a step-by-step guide to getting started:
 
+
+#### Create the project directory
 ``````
-# Create the project directory
 $ git clone git@github.com:Asha-Ali/Tech-test.git
 $ cd Tech-test
+``````
 
-# install jest "globally"
-# (this is so we can run the `jest` command)
+#### install jest "globally"
+``````
 $ npm install -g jest
+``````
 
-# Run the tests:
+#### Run the tests:
+``````
 $ jest
-Executing the program
+``````
+### Executing the program
 
-# Setup our environment to use node:
+#### Setup our environment to use node:
+``````
 $ nvm use node
 
-# Enter node REPL:
+``````
+
+#### Enter node REPL:
+``````
 $ node
 ``````
