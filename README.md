@@ -1,6 +1,6 @@
 # Bank-Tech-test
 
-A simple banking application in Java with support for deposits, withdrawals, and account statements.
+A simple Java application for managing bank accounts, transactions, and generating account statements.
 
 ## Technologies
 

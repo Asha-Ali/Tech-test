@@ -1,5 +1,17 @@
 {
   "dependencies": {
+    "jest": "^29.6.4",
     "lodash": "^4.17.21"
-  }
+  },
+  "name": "tech-test",
+  "description": "A simple Java application for managing bank accounts, transactions, and generating account statements.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {}
 }

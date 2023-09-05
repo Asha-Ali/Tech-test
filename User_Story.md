@@ -17,7 +17,7 @@ And a withdrawal of 500 on 14-01-2023
 When the client prints her bank statement
 Then she would see the following statement:
 
-```sh
+```
 date || credit || debit || balance
 14/01/2023 || || 500.00 || 2500.00
 13/01/2023 || 2000.00 || || 3000.00
@@ -30,6 +30,6 @@ When the client prints her bank statement
 Then she would see an empty statement with a header but no transactions:
 
 
-```sh
+```
 date || credit || debit || balance
 ```
