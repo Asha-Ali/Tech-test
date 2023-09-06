@@ -17,5 +17,14 @@ describe('BankStatement', () => {
     expect(() => new BankStatement(validTransactions)).not.toThrow();
     });
 
+    it('should throw an error for invalid transactions', () => {
+        const invalidTransactions = [
+        new Transaction('2023-09-01', 100, null),
+        { date: '2023-09-02', credit: null, debit: 50 }, // Invalid transaction object
+        ];
+        expect(() => new BankStatement(invalidTransactions)).toThrow('Invalid input');
+    });
+
+    
 
 })
