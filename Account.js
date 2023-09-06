@@ -8,7 +8,7 @@ class Account {
     };
 
     print () {
-    return `${this.date} || ${this.credit != "" ? this.credit.toFixed(2) : ""} || ${this.debit != "" ? this.debit.toFixed(2) : ""} || ${this.balance.toFixed(2)}`
+    return `${this.date} || ${this.credit != "" ? this.credit: ""} || ${this.debit != "" ? this.debit: ""} || ${this.balance}`
     }
 };
 

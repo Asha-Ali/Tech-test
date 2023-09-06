@@ -1,31 +1,45 @@
 const Transaction = require('./transactions');
-const Account = require('./Account');
+
+describe('Transaction', () => {
+    let transaction;
+
+    beforeEach(() => {
+    transaction = new Transaction();
+    });
+
+    it('balance of 0 and an empty transactions array', () => {
+    expect(transaction.getBalance()).toEqual(0);
+    expect(transaction.transactions).toEqual([]);
+    });
+
+    it('deposit and update the balance', () => {
+    transaction.makeDeposit(100, '2023-01-01');
+    expect(transaction.getBalance()).toEqual(100);
+    });
+
+    it('withdrawal and update the balance', () => {
+    transaction.makeDeposit(200, '2023-01-01');
+    transaction.makeWithdrawal(50, '2023-01-02');
+    expect(transaction.getBalance()).toEqual(150);
+    });
 
 
-// describe('Transaction', () => {
-//     beforeEach(() => {
-//         transaction = new Transaction();
-//     })
+    it('print the statement with deposit and withdrawal', () => {
 
-//     it('should intitialise with the a balance of 0', () => {
-//         expect(transaction.getBalance()).toEqual(0);
-//     })
+        const originalConsoleLog = console.log;
+        const consoleOutput = [];
+        console.log = jest.fn((output) => {
+            consoleOutput.push(output);
+        });
+        
+        transaction.makeDeposit(100, '2023-01-01');
+        transaction.makeWithdrawal(50, '2023-01-02');
+        transaction.printStatement();
 
-//     it('can make a deposit', () => {
-//         transaction.makeDeposit(1000, '10-01-2023');
-//         expect(transaction.getBalance()).toEqual(1000);
-//     });
+        console.log = originalConsoleLog;
 
-//     it('can make a withdrawal', () => {
-//         transaction.makeDeposit(1000, '10-01-2023');
-//         transaction.makeWithdrawal(500, '14-01-2023');
-//         expect(transaction.getBalance()).toEqual(500);
-//     });
-
-//     it('should update balance correctly for multiple transactions', () => {
-//         transaction.makeDeposit(1000, '10-01-2023');
-//         transaction.makeWithdrawal(500, '14-01-2023');
-//         transaction.makeDeposit(2000, '20-01-2023');
-//         expect(transaction.getBalance()).toEqual(2500);
-//     });
-// });
+        expect(consoleOutput[0]).toBe('date || credit || debit || balance');
+        expect(consoleOutput[1]).toBe('2023-01-02 ||  || 50 || 50');
+        expect(consoleOutput[2]).toBe('2023-01-01 || 100 ||  || 100');
+    });
+});
