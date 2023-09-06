@@ -63,4 +63,4 @@ $ node
 
 ## Result
 
-![Alt text](<Screenshot 2023-09-06 at 18.05.20-2.png>)
+![Alt text](<Screenshot 2023-09-06 at 18.05.20.png>)
