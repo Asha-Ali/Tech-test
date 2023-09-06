@@ -1,5 +1,5 @@
 
-const Account = require('./Account');
+const Account = require('.Account');
 
 describe('Account', () => {
     it('Account has the correct properties', () => {
