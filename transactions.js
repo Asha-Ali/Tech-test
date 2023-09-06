@@ -1,4 +1,4 @@
-// a class that handles transactions
+const Account = require('./Account');
 
 class Transaction {
     constructor() {
@@ -6,47 +6,38 @@ class Transaction {
         this.transactions = [];
     }
     getBalance() {
-        // return this.transactions.reduce((balance, transaction) => {
-        //     if (transaction.credit !== null) {
-        //         balance += transaction.credit;
-        //     } else {
-        //         balance -= transaction.debit;
-        //     }
-        //     return balance;
-        // }, 0);
         return this.balance;
     }
     
     makeDeposit(amount, date) {
         this.balance += amount;
-        this.transactions.push({
+        const account = new Account({
             date: date,         
             credit: amount,     
             debit: null,
             balance: this.balance
         });
-        //this.balance += amount;
+        this.transactions.push(account)
+        
     }
     makeWithdrawal(amount, date) {
-        
-        // this.transactions.push({
-        //     date: date,         
-        //     credit: null,     
-        //     debit: amount
-        // });
-        // this.balance -= amount; 
+        this.balance -= amount;
+        const account = new Account({
+            date: date,         
+            credit: null,     
+            debit: amount,
+            balance: this.balance
+        });
+        this.transactions.push(account)
+    }
 
-        if (amount <= this.balance) {
-            this.balance -= amount;
-            this.transactions.push({
-                date: date,
-                credit: null,
-                debit: amount,
-                balance: this.balance
-            });
-        } else {
-            console.error("Insufficient balance for withdrawal.");
-        }
+    printStatement() {
+        console.log('date || credit || debit || balance');
+        this.transactions.reverse().forEach((transaction) => {
+        console.log(
+                `${transaction.date} || ${transaction.credit || ''} || ${transaction.debit || ''} || ${transaction.balance}`
+            );
+        });
     }
 };
 
