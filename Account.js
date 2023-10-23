@@ -7,9 +7,7 @@ class Account {
     this.balance = balance;
     };
 
-    print () {
-    return `${this.date} || ${this.credit != "" ? this.credit: ""} || ${this.debit != "" ? this.debit: ""} || ${this.balance}`
-    }
+    
 };
 
 
